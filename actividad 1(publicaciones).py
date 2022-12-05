@@ -22,7 +22,7 @@ def filtrar():
         for profesor in contenido:
             if profesor['cedula'] == cedula:
                 docentes['articulos'] += 1
-    print(profesores[0])
+    print(profesores)
 
 
 if __name__ == "__main__":
