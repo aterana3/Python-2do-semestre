@@ -11,7 +11,7 @@ def filtrar():
     for profesor in contenido:
         cedula = profesor['cedula']
         apellidos = profesor['apellidos']
-        if cedula is not profesores:
+        if cedula not in profesores:
             profesores.append({
                 'cedula': cedula,
                 'apellidos': apellidos,
