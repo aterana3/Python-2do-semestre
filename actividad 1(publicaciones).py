@@ -15,13 +15,14 @@ def construir():
             'cedula': cedula,
             'apellidos': apellidos,
             'publicaciones': 0,
-            'tipos': [],
+            'tipos': {'CIENTIFICAS':0,'REGIONALES':0},
             'areas': []
         }
         if datos not in profesores:
             profesores.append(datos)
     publicaciones()
     areas()
+    tipo_de_publicaciones()
     imprimir()
 
 
@@ -33,10 +34,23 @@ def publicaciones():
                 docente['publicaciones'] += 1
 
 
+def tipo_de_publicaciones():
+    for docente in profesores:
+        cedula = docente['cedula']
+        tipos = docente['tipos']
+        for profesor in contenido:
+            if profesor['cedula'] == cedula:
+                tipo = profesor['tipobases']
+                if tipo == "CIENTIFICAS":
+                   tipos['CIENTIFICAS'] += 1
+                else:
+                    tipos['REGIONALES'] += 1
+
+
 def areas():
-    for docentes in profesores:
-          cedula = docentes['cedula']
-          areas_trabajadas = docentes['areas']
+    for docente in profesores:
+          cedula = docente['cedula']
+          areas_trabajadas = docente['areas']
           for profesor in contenido:
             if profesor['cedula'] == cedula:
                 area = profesor['area']
@@ -51,6 +65,12 @@ def imprimir():
         print(f"Nombre: {docente['apellidos']}")
         print(f"Cedula: {docente['cedula']}")
         print(f"Publicaciones: {docente['publicaciones']}")
+        print(" ")
+        tipos = docente['tipos']
+        print(f"Tipo de articulos publicados:")
+        print(f"Cientificos: {tipos['CIENTIFICAS']}")
+        print(f"Regionales: {tipos['REGIONALES']}")
+        print(" ")
         areas = docente['areas'];
         print('Areas trabajadas:')
         for key in areas:
