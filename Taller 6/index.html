@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap prueba - Taller 7</title>
+    <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript">
+        function cargar() {
+          fetch('https://sga.unemi.edu.ec/api?a=apilistaarticulos&a=apilistaarticulos&ida=0')
+          .then(response => response.json())
+          .then(data => {
+            const table = document.getElementById('dataarticulos')
+
+            data.forEach(item => {
+              const row = document.createElement('tr');
+              row.innerHTML = `
+               <td>${item.apellidos}</td>
+               <td>${item.articulos}</td>
+               <td>${item.base}</td>
+               <td>${item.enlace}</td>
+               <td>${item.fecha}</td>
+               <td>${item.links}</td>
+               <td>${item.revista}</td>
+              `
+              table.appendChild(row);
+            });
+          }).catch(err => console.log("solicitud fallida", err));
+        }
+    </script>
+</head>
+<body>
+<div>
+
+</div>
+<h4 class="display-4 head text-center">Uso api y boostrap</h4>
+<button type="button" class="btn btn-outline-success m-2" onclick="cargar()">Cargar</button>
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-primary-emphasis bg-primary-subtle border border-primary-subtle">
+            <thead>
+            <tr>
+                <th>Autor</th>
+                <th>Articulo</th>
+                <th>Base</th>
+                <th>Enlace</th>
+                <th>Fecha</th>
+                <th>Link</th>
+                <th>Revista</th>
+            </tr>
+            </thead>
+            <tbody id="dataarticulos"></tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
