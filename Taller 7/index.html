@@ -24,8 +24,8 @@
                <td>${item.revista}</td>
               `
               table.appendChild(row);
-            })
-          });
+            });
+          }).catch(err => console.log("solicitud fallida", err));
         }
     </script>
 </head>
