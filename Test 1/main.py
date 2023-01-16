@@ -87,19 +87,7 @@ def imprimir():
         print(f"Total de cargos trabajados: {len(cargos)}")
         print("*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*")
     print(f"Total de usuarios registrados: {len(personal)}")
-    print("")
-
-    print("")
-    print("Lista de departamentos registrados")
-    for departamento in departamentos_registrados:
-        print(f"{departamento}")
     print(f"Total de departamentos: {len(departamentos_registrados)}")
-    print("")
-
-    print("")
-    print("Lista de cargos registrados")
-    for cargo in cargos_registrados:
-        print(f"{cargo}")
     print(f"Total de cargos: {len(cargos_registrados)}")
     print("")
 
